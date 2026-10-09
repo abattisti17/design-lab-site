@@ -1,6 +1,6 @@
 # Design Lab brand and design system
 
-Version 0.1, October 2026. Living reference: `designlab_html/styleguide/` (not linked from the site, `noindex`).
+Version 0.2, "Drawing set", October 2026. Living reference: `designlab_html/styleguide/` (not linked from the site, `noindex`).
 
 ## The one rule
 
@@ -10,55 +10,54 @@ Pages use the tokens in `designlab_html/css/site.css`. Never write raw hex value
 
 ## Direction
 
-A drawing set, not a creative agency. Warm paper, near-black ink, thin hairlines, a strict grid, small uppercase labels like a title block, tabular numbers. Calm and precise. No stock photos, gradients, drop shadows or pill buttons.
+Borrowed from architects' own drawings: black linework on white, hatching for what's used, dimension strings for amounts, a redline revision cloud for what's wrong, trace paper for what's still being worked out, and a title block at the foot of every page. The audience reads drawings all day, so the page speaks their visual language.
+
+Spend boldness in one place: the fee drawing at the top of the architecture page. Everything else stays quiet.
 
 ## Color
 
-All contrast ratios are against Paper.
-
-- `--paper #FAFAF7` page background
-- `--surface #FFFFFF` cards and raised areas
-- `--ink #17181C` body text and headings (17.0:1)
-- `--graphite #4F5560` secondary text, labels, captions (7.2:1)
-- `--rule #E4E4DE` hairlines, borders, dividers
-- `--brand #1F0046` buttons, links, focus rings, active states (17.5:1)
-- `--brand-tint #F1EEF6` selected and highlighted backgrounds
-- `--over #B42318` over budget, errors (6.3:1)
-- `--paid #15803D` paid, complete (4.8:1; icons and bold labels, not long text)
-
-Brand is the only accent. Over and Paid carry meaning and are used only for that meaning.
-
-Alternative being considered: swap `--brand` to blueprint blue `#1D4ED8` (6.4:1). It's a one-line change.
+- `--paper #FFFFFF` page
+- `--ink #000000` text, linework, buttons (21:1)
+- `--pencil #5B6169` secondary text and captions (6.3:1)
+- `--line-light #D4D4D4` minor rules
+- `--trace #FFF6C2` the founding offer only
+- `--redline #C8201A` over budget and markup only (5.7:1)
 
 ## Type
 
-- IBM Plex Serif 500: H1 and H2 only
-- IBM Plex Sans 400, 500, 600: everything else
-- Scale: 14, 16, 18, 22, 28, 36, 48px (`--text-xs` to `--text-3xl`)
-- Body 18px, line height 1.6. Headings line height 1.2.
-- Use `.num` (tabular figures) wherever amounts stack in a column.
-- Fonts are self-hosted in `assets/fonts/` and declared in `site.css`. No Google Fonts or other third-party requests, so the privacy page stays true.
+- Archivo variable, self-hosted in `assets/fonts/` (SIL OFL). No third-party font requests.
+- Headlines: 118% width (`--wide`), weight 650 to 700, tight tracking.
+- Body: normal width, weight 400, 18px, line height 1.55.
+- Scale: 14, 16, 18, 22, 30, 40, 60px (`--text-xs` to `--text-3xl`).
+- Sentence case everywhere, including buttons. Tabular figures by default.
 
-## Space and shape
+## Shape and space
 
-- Spacing: 4px base. Steps 4, 8, 12, 16, 24, 32, 48, 64, 96 (`--space-1` to `--space-9`).
-- Radius: 6px controls (`--radius-control`), 10px cards (`--radius-card`).
-- Borders: 1px hairline in Rule. No shadows.
-- Reading width: 40rem (`--measure`).
+- Radius 2px on buttons and the trace sheet, nothing else.
+- Lines are 1px black (`--line`). Hatching: `--hatch` (black) and `--hatch-red`.
+- Spacing: 4px base. Steps 4, 8, 12, 16, 24, 32, 48, 72, 112.
+- Reading width: 36rem (`--measure`).
 
 ## Components
 
-Defined in `site.css`, shown in the style guide: `.site-header`, `.wordmark`, `.eyebrow`, `.btn` (`.btn-primary`, `.btn-outline`, `.btn-sm`), `.card-dl`, `.pain-list`, `.check-list`, `.steps`, `.offer`, `.founder`, `.mock` (product mockup), `.tag`, `.site-footer`.
+In `site.css`, shown in the style guide: `.site-header`, `.wordmark`, `.btn` (`.btn-primary`, `.btn-outline`, `.btn-sm`), `.cta`, the fee drawing (`.drawing`, `.fee-run`, `.phase`, `.dim`, `.bar`, `.used`, `.over`, `.cloud`, `.markup`, `.legend`), `.problems`, `.steps`, `.trace`, `.terms`, `.founder`, `.prose`, `.title-block`.
 
 ## Voice
 
-- Plain, specific, short sentences.
-- Use the buyer's words (fees, phases, billing day), not ours.
-- Say what it does and what it costs. No hype words.
+- Plain, specific, short sentences, in the buyer's words (fees, phases, billing day).
+- Say what it does and what it costs. No hype.
 - No em dashes. No "it's X, not Y" constructions. No clever closing lines.
-- Sentence case for headings and buttons.
+
+## What we don't do
+
+These are the defaults of generated sites:
+
+- Cream backgrounds, serif display headlines, purple or clay accents
+- All-caps labels above headings, monospace data labels, arrows on links, middle-dot meta strings
+- Rounded cards with soft shadows, gradient washes, icon-in-a-circle bullets
+- Fake browser chrome around product shots
 
 ## Identity
 
-- Wordmark: lowercase "design lab" in Plex Sans 600, Ink. Placeholder until the product has its own name.
-- Favicon: "dl" in Paper on a Brand rounded square (`assets/favicon.svg`, PNG and ICO fallbacks).
+- Wordmark: "Design Lab" in Archivo at 125% width, weight 750. Placeholder until the product has its own name.
+- Favicon: white "DL" on a black square (`assets/favicon.svg`, PNG and ICO fallbacks).

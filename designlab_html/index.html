@@ -20,6 +20,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+  <link rel="preload" href="assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link href="css/styles.css" rel="stylesheet" />
   <link href="css/site.css" rel="stylesheet" />
 </head>
@@ -28,7 +29,7 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/">design lab</a>
+      <a class="wordmark" href="/">Design Lab</a>
       <a class="btn btn-outline btn-sm" href="/architecture/">For architecture firms</a>
     </div>
   </header>
@@ -36,50 +37,40 @@
   <main id="main">
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Design Lab</span>
-        <h1 style="max-width: 14em;">Focused tools for small professional firms.</h1>
+        <h1>Focused tools for small professional firms.</h1>
         <p class="lead">We talk to small firms about the admin that eats their week, then build simple software that handles it.</p>
-        <div class="cta-group">
-          <a class="btn btn-primary btn-block" href="/architecture/">For architecture firms</a>
+      </div>
+    </section>
+
+    <section class="block block-flush-top">
+      <div class="wrap">
+        <div class="now">
+          <h2>Now: fee tracking for architects</h2>
+          <p class="pencil">Fee by phase, time against it, and invoices in a few clicks, for practices of 1 to 20 people. Founding firms are joining now.</p>
+          <a class="btn btn-primary btn-block" href="/architecture/">See what we're building</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="block block-flush-top">
       <div class="wrap">
-        <h2>Research first, then software</h2>
         <div class="prose">
+          <h2>Research first, then software</h2>
           <p>Design Lab is a small design and research studio. Before we build anything, we sit down with the people who would use it and learn how they work today. Then we build the smallest tool that fixes the part they hate.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <span class="eyebrow">Now working with</span>
-        <a class="card-dl link-card" href="/architecture/">
-          <h3>Small architecture practices</h3>
-          <p class="muted">Fee tracking by phase and invoicing for firms of 1 to 20 people. Founding firms are joining now.</p>
-          <span class="arrow">See what we are building &rarr;</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <h2>Say hello</h2>
-        <div class="prose">
-          <p>Run a small firm and have a process that drives you up the wall? We would like to hear about it. Write to <a href="mailto:hello@designlab.fyi">hello@designlab.fyi</a>.</p>
+          <p>Run a small firm and have a process that drives you up the wall? Write to <a href="mailto:hello@designlab.fyi">hello@designlab.fyi</a>.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
+  <footer class="wrap">
+    <div class="title-block">
+      <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Fee tracking for small practices</span></div>
       <!-- TODO: Rosso. Add the mailing address. -->
-      <p>&copy; 2026 Design Strategy Lab LLC &middot; [MAILING ADDRESS]</p>
-      <p class="footer-links"><span>hello@designlab.fyi</span><a href="/privacy/">Privacy</a></p>
+      <div><small>Office</small>Design Strategy Lab LLC<br>[MAILING ADDRESS]</div>
+      <div><small>Contact</small>hello@designlab.fyi</div>
+      <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+      <div><small>Issued</small>2026</div>
     </div>
   </footer>
 </body>

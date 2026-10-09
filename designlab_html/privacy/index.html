@@ -6,9 +6,11 @@
   <title>Privacy | Design Lab</title>
   <meta name="description" content="What Design Lab collects, why, and how to have it deleted." />
   <link rel="canonical" href="https://designlab.fyi/privacy/" />
+
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/favicon-180.png" />
+  <link rel="preload" href="../assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link href="../css/styles.css" rel="stylesheet" />
   <link href="../css/site.css" rel="stylesheet" />
 </head>
@@ -17,7 +19,7 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/">design lab</a>
+      <a class="wordmark" href="/">Design Lab</a>
     </div>
   </header>
 
@@ -25,13 +27,12 @@
   <main id="main">
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Last updated October 2026</span>
         <h1>Privacy</h1>
-        <p class="lead">We collect as little as we can, use it only to talk with you and run founding access, and delete it when you ask.</p>
+        <p class="lead">We collect as little as we can, use it only to talk with you and run founding access, and delete it when you ask. Last updated October 2026.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="block block-flush-top">
       <div class="wrap">
         <div class="prose">
           <h2>What we collect</h2>
@@ -43,7 +44,7 @@
 
           <h2>What we don't do</h2>
           <ul>
-            <li>No analytics, tracking pixels or advertising cookies on this site.</li>
+            <li>No analytics, tracking pixels or advertising cookies on this site. Fonts are hosted here, so pages make no requests to other companies.</li>
             <li>No selling or sharing your information with anyone beyond the services named above.</li>
             <li>No adding you to a mailing list you didn't ask for.</li>
           </ul>
@@ -58,10 +59,14 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>&copy; 2026 Design Strategy Lab LLC &middot; [MAILING ADDRESS]</p>
-      <p class="footer-links"><span>hello@designlab.fyi</span><a href="/privacy/">Privacy</a></p>
+  <footer class="wrap">
+    <div class="title-block">
+      <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Fee tracking for small practices</span></div>
+      <!-- TODO: Rosso. Add the mailing address. -->
+      <div><small>Office</small>Design Strategy Lab LLC<br>[MAILING ADDRESS]</div>
+      <div><small>Contact</small>hello@designlab.fyi</div>
+      <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+      <div><small>Issued</small>2026</div>
     </div>
   </footer>
 </body>

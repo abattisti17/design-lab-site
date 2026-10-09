@@ -10,117 +10,151 @@
   <link href="../css/styles.css" rel="stylesheet" />
   <link href="../css/site.css" rel="stylesheet" />
   <style>
-    .sg-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
-    .swatch { border: var(--hairline); border-radius: var(--radius-card); overflow: hidden; background: var(--surface); }
-    .swatch div { height: 64px; border-bottom: var(--hairline); }
+    .sg-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); }
+    .swatch { border: var(--line); }
+    .swatch div { height: 64px; border-bottom: var(--line); }
     .swatch p { margin: 0; padding: var(--space-3); font-size: var(--text-xs); line-height: 1.4; }
-    .swatch code { color: var(--graphite); }
+    .sg-label { font-size: var(--text-xs); color: var(--pencil); margin: var(--space-6) 0 var(--space-3); }
     .sg-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
-    .sg-label { font-size: var(--text-xs); color: var(--graphite); margin: var(--space-6) 0 var(--space-3); }
-    .space-bar { height: 12px; background: var(--brand); border-radius: 2px; }
+    .sg-hatch { display: flex; gap: var(--space-4); }
+    .sg-hatch div { width: 96px; height: 48px; border: var(--line); }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/">design lab</a>
-      <span class="small-text muted">Style guide (internal)</span>
+      <a class="wordmark" href="/">Design Lab</a>
+      <span class="small-text pencil">Style guide v0.2, internal</span>
     </div>
   </header>
 
   <main>
-    <section class="section">
+    <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Design system v0.1</span>
-        <h1>Style guide</h1>
-        <p class="lead muted measure">Tokens and components for designlab.fyi. Pages use the tokens in <code>css/site.css</code>, never raw hex values. Contrast ratios are measured against Paper.</p>
+        <h1>Drawing set</h1>
+        <p class="lead">The system for designlab.fyi. Black linework on white, one typeface in two widths, red only for markup. Pages use the tokens in <code>css/site.css</code>, never raw values.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>Color</h2>
-        <div class="sg-grid">
-          <div class="swatch"><div style="background:var(--paper)"></div><p><b>Paper</b><br><code>--paper #FAFAF7</code><br>Page background</p></div>
-          <div class="swatch"><div style="background:var(--surface)"></div><p><b>Surface</b><br><code>--surface #FFFFFF</code><br>Cards</p></div>
-          <div class="swatch"><div style="background:var(--ink)"></div><p><b>Ink</b><br><code>--ink #17181C</code><br>Text, 17.0:1</p></div>
-          <div class="swatch"><div style="background:var(--graphite)"></div><p><b>Graphite</b><br><code>--graphite #4F5560</code><br>Secondary text, 7.2:1</p></div>
-          <div class="swatch"><div style="background:var(--rule)"></div><p><b>Rule</b><br><code>--rule #E4E4DE</code><br>Hairlines, borders</p></div>
-          <div class="swatch"><div style="background:var(--brand)"></div><p><b>Brand</b><br><code>--brand #1F0046</code><br>Actions, links, 17.5:1</p></div>
-          <div class="swatch"><div style="background:var(--brand-tint)"></div><p><b>Brand tint</b><br><code>--brand-tint #F1EEF6</code><br>Highlights</p></div>
-          <div class="swatch"><div style="background:var(--over)"></div><p><b>Over</b><br><code>--over #B42318</code><br>Over budget, 6.3:1</p></div>
-          <div class="swatch"><div style="background:var(--paid)"></div><p><b>Paid</b><br><code>--paid #15803D</code><br>Paid, done, 4.8:1</p></div>
-        </div>
+    <section class="block block-flush-top"><div class="wrap">
+      <h2>Color</h2>
+      <p class="pencil measure">Contrast against white.</p>
+      <div class="sg-grid">
+        <div class="swatch"><div style="background:var(--paper)"></div><p><b>Paper</b><br><code>--paper #FFFFFF</code><br>Page</p></div>
+        <div class="swatch"><div style="background:var(--ink)"></div><p><b>Ink</b><br><code>--ink #000000</code><br>Text, lines, buttons. 21:1</p></div>
+        <div class="swatch"><div style="background:var(--pencil)"></div><p><b>Pencil</b><br><code>--pencil #5B6169</code><br>Secondary text. 6.3:1</p></div>
+        <div class="swatch"><div style="background:var(--line-light)"></div><p><b>Light line</b><br><code>--line-light #D4D4D4</code><br>Minor rules</p></div>
+        <div class="swatch"><div style="background:var(--trace)"></div><p><b>Trace</b><br><code>--trace #FFF6C2</code><br>Founding offer only</p></div>
+        <div class="swatch"><div style="background:var(--redline)"></div><p><b>Redline</b><br><code>--redline #C8201A</code><br>Over budget and markup only. 5.7:1</p></div>
       </div>
-    </section>
+    </div></section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>Type</h2>
-        <p class="sg-label">Plex Serif 500, headings only</p>
-        <p style="font-family:var(--font-serif);font-weight:500;font-size:var(--text-3xl);line-height:1.1;margin-bottom:var(--space-2)">48 Know where every fee stands</p>
-        <p style="font-family:var(--font-serif);font-weight:500;font-size:var(--text-2xl);line-height:1.15;margin-bottom:var(--space-2)">36 Know where every fee stands</p>
-        <p style="font-family:var(--font-serif);font-weight:500;font-size:var(--text-xl);line-height:1.2">28 Know where every fee stands</p>
-        <p class="sg-label">Plex Sans 400 / 500 / 600, everything else</p>
-        <p style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-2)">22 Semibold, small headings</p>
-        <p style="font-size:var(--text-md);margin-bottom:var(--space-2)">18 Regular, body text. Plain, specific, short sentences.</p>
-        <p style="font-size:var(--text-sm);margin-bottom:var(--space-2)">16 Regular, UI text and buttons</p>
-        <p style="font-size:var(--text-xs);color:var(--graphite)">14 Regular, captions and meta</p>
-        <p class="sg-label">Tabular figures (<code>.num</code>) for amounts that stack</p>
-        <p class="num" style="font-size:var(--text-md);line-height:1.5">$12,600.00<br>$16,800.00<br>$4,200.00</p>
-        <p class="sg-label">Eyebrow</p>
-        <span class="eyebrow">For architecture firms of 1 to 20 people</span>
+    <section class="block block-flush-top"><div class="wrap">
+      <h2>Type</h2>
+      <p class="pencil measure">Archivo, self-hosted variable font. Expanded (118% width) for headlines, normal width for reading. Sentence case everywhere. Tabular figures by default.</p>
+      <p class="sg-label">Headline, 60px, weight 700</p>
+      <p style="font-stretch:var(--wide);font-weight:700;font-size:var(--text-3xl);line-height:1.05;letter-spacing:-0.03em;margin:0">Know where every fee stands</p>
+      <p class="sg-label">Section heading, 40px, weight 650</p>
+      <p style="font-stretch:var(--wide);font-weight:650;font-size:var(--text-2xl);line-height:1.1;letter-spacing:-0.02em;margin:0">Founding firms</p>
+      <p class="sg-label">Small heading, 22px</p>
+      <p style="font-stretch:var(--wide);font-weight:650;font-size:var(--text-lg);margin:0">Billing day is copy and paste</p>
+      <p class="sg-label">Body, 18px, and caption, 14px</p>
+      <p class="measure" style="margin-bottom:var(--space-2)">Set each project's fee by phase, log time against it, and turn it into an invoice in a few clicks.</p>
+      <p class="small-text pencil">$84,000 total fee. Next invoice $9,240.</p>
+    </div></section>
+
+    <section class="block block-flush-top"><div class="wrap">
+      <h2>Hatching</h2>
+      <p class="pencil measure">Borrowed from drawings, where hatching shows material that's been cut. Here it shows fee that's been used.</p>
+      <div class="sg-hatch">
+        <div style="background:var(--hatch)" title="Fee used"></div>
+        <div title="Remaining"></div>
+        <div style="background:var(--hatch-red);border-color:var(--redline)" title="Over fee"></div>
       </div>
-    </section>
+    </div></section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>Space and shape</h2>
-        <p class="sg-label">Spacing steps (4px base)</p>
-        <div style="display:grid;gap:6px;max-width:24rem">
-          <div class="space-bar" style="width:4px"></div><div class="space-bar" style="width:8px"></div><div class="space-bar" style="width:12px"></div><div class="space-bar" style="width:16px"></div><div class="space-bar" style="width:24px"></div><div class="space-bar" style="width:32px"></div><div class="space-bar" style="width:48px"></div><div class="space-bar" style="width:64px"></div><div class="space-bar" style="width:96px"></div>
-        </div>
-        <p class="sg-label">Radius: 6px controls, 10px cards. 1px hairlines. No shadows.</p>
+    <section class="block block-flush-top"><div class="wrap">
+      <h2>The fee drawing</h2>
+      <p class="pencil measure">The one bold element. Segments are proportional to each phase's fee, dimensioned like a wall. Overruns are redlined in a revision cloud.</p>
+      <figure class="drawing">
+          <div class="fee-run" role="list" aria-label="Fee by phase for an example project">
+            <div class="phase" role="listitem" style="--share: 15">
+              <div class="dim"><span>$12,600</span></div>
+              <div class="bar"><div class="used full" style="width:100%"></div></div>
+              <div class="phase-label"><b>SD</b><span>Billed</span></div>
+            </div>
+            <div class="phase phase-dd" role="listitem" style="--share: 20">
+              <div class="dim"><span>$16,800</span></div>
+              <div class="bar"><div class="used full" style="width:100%"></div><div class="over" style="width:12%"></div></div>
+              <div class="cloud" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M7.0,7.0 A7,7 0 0 1 21.3,7.0 A7,7 0 0 1 35.7,7.0 A7,7 0 0 1 50.0,7.0 A7,7 0 0 1 64.3,7.0 A7,7 0 0 1 78.7,7.0 A7,7 0 0 1 93.0,7.0 A7,7 0 0 1 93.0,21.3 A7,7 0 0 1 93.0,35.7 A7,7 0 0 1 93.0,50.0 A7,7 0 0 1 93.0,64.3 A7,7 0 0 1 93.0,78.7 A7,7 0 0 1 93.0,93.0 A7,7 0 0 1 78.7,93.0 A7,7 0 0 1 64.3,93.0 A7,7 0 0 1 50.0,93.0 A7,7 0 0 1 35.7,93.0 A7,7 0 0 1 21.3,93.0 A7,7 0 0 1 7.0,93.0 A7,7 0 0 1 7.0,78.7 A7,7 0 0 1 7.0,64.3 A7,7 0 0 1 7.0,50.0 A7,7 0 0 1 7.0,35.7 A7,7 0 0 1 7.0,21.3 A7,7 0 0 1 7.0,7.0"/></svg></div>
+              <div class="phase-label"><b>DD</b><span>112% used</span></div>
+              <span class="markup">Over fee by $2,016</span>
+            </div>
+            <div class="phase phase-cd" role="listitem" style="--share: 40">
+              <div class="dim"><span>$33,600</span></div>
+              <div class="bar"><div class="used" style="width:35%"></div></div>
+              <div class="phase-label"><b>CD</b><span>35% used</span></div>
+            </div>
+            <div class="phase phase-bid" role="listitem" style="--share: 5">
+              <div class="dim"><span>$4,200</span></div>
+              <div class="bar"></div>
+              <div class="phase-label"><b>Bid</b><span>Not started</span></div>
+            </div>
+            <div class="phase" role="listitem" style="--share: 20">
+              <div class="dim"><span>$16,800</span></div>
+              <div class="bar"></div>
+              <div class="phase-label"><b>CA</b><span>Not started</span></div>
+            </div>
+          </div>
+          <figcaption class="drawing-title">
+            <div>
+              <b id="drawing-title">Hudson St. residence, fee by phase</b><br>
+              <span class="pencil">$84,000 total fee. Next invoice $9,240, ready to send. An early design: founding firms help shape it.</span>
+            </div>
+            <ul class="legend">
+              <li><i class="k-used"></i>Fee used</li>
+              <li><i></i>Remaining</li>
+              <li><i class="k-over"></i>Over fee</li>
+            </ul>
+          </figcaption>
+        </figure>
+    </div></section>
+
+    <section class="block block-flush-top"><div class="wrap">
+      <h2>Components</h2>
+      <p class="sg-label">Buttons: 2px radius, black or outline</p>
+      <div class="sg-row">
+        <a class="btn btn-primary" href="#">Book a 15-minute call</a>
+        <a class="btn btn-outline" href="#">Book a call</a>
+        <a class="btn btn-outline btn-sm" href="#">Small</a>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <h2>Components</h2>
-        <p class="sg-label">Buttons</p>
-        <div class="sg-row">
-          <a class="btn btn-primary" href="#">Book a 15-minute call</a>
-          <a class="btn btn-outline" href="#">Book a call</a>
-          <a class="btn btn-outline btn-sm" href="#">Small</a>
-        </div>
-
-        <p class="sg-label">Card</p>
-        <div class="card-dl measure"><h3>Card title</h3><p class="muted" style="margin:0">Surface background, hairline border, 10px radius.</p></div>
-
-        <p class="sg-label">Pain list</p>
-        <ul class="pain-list measure">
-          <li><strong>Over budget, found too late.</strong><span>You find out a phase went over its fee after the invoice is already late.</span></li>
-        </ul>
-
-        <p class="sg-label">Check list</p>
-        <ul class="check-list measure">
-          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Refund any time before launch</span></li>
-        </ul>
-
-        <p class="sg-label">Steps</p>
-        <ol class="steps measure">
-          <li><div><strong>Book a 15-minute call.</strong><span>Tell us how you handle fees today.</span></div></li>
-          <li><div><strong>Reserve your spot.</strong><span>A refundable $100 deposit.</span></div></li>
-        </ol>
-
-        <p class="sg-label">Status tag</p>
-        <span class="tag">Over fee</span>
+      <p class="sg-label">Steps, for real sequences only</p>
+      <ol class="steps measure" style="margin-top:0">
+        <li><div><b>Book a 15-minute call</b><span>Walk us through how you bill today.</span></div></li>
+        <li><div><b>Reserve a spot</b><span>A refundable $100 deposit.</span></div></li>
+      </ol>
+      <p class="sg-label">Trace sheet, for the founding offer only</p>
+      <div class="trace measure"><ul class="terms" style="margin:0"><li><b>$100 deposit</b>, credited to your first year</li><li><b>Refund any time</b> before launch</li></ul></div>
+      <p class="sg-label">Title block footer</p>
+      <div class="title-block" style="margin:0">
+        <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Fee tracking for small practices</span></div>
+        <div><small>Office</small>Design Strategy Lab LLC</div>
+        <div><small>Contact</small>hello@designlab.fyi</div>
+        <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+        <div><small>Issued</small>2026</div>
       </div>
-    </section>
+    </div></section>
+
+    <section class="block block-flush-top"><div class="wrap prose">
+      <h2>What we don't do</h2>
+      <p>These are the defaults of generated sites. Leaving them out keeps the page ours.</p>
+      <ul>
+        <li>Cream backgrounds, serif display headlines, purple or clay accents</li>
+        <li>All-caps labels above headings, monospace data labels, arrows on links</li>
+        <li>Rounded cards with soft shadows, gradient washes, icon-in-a-circle bullets</li>
+        <li>Fake browser chrome around product shots</li>
+      </ul>
+    </div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="wrap"><p>Design Strategy Lab LLC</p><p>Internal reference, not linked from the site.</p></div>
-  </footer>
 </body>
 </html>

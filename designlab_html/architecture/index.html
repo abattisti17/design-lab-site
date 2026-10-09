@@ -11,7 +11,7 @@
   <meta property="og:site_name" content="Design Lab" />
   <meta property="og:url" content="https://designlab.fyi/architecture/" />
   <meta property="og:title" content="Know where every fee stands, and bill without the spreadsheet." />
-  <meta property="og:description" content="Simple fee tracking and invoicing for architecture firms of 1 to 20 people. No demo, no sales call." />
+  <meta property="og:description" content="Fee tracking and invoicing for architecture firms of 1 to 20 people. No demo, no sales call." />
   <meta property="og:image" content="https://designlab.fyi/assets/img/og-architecture.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -20,6 +20,7 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/favicon-180.png" />
+  <link rel="preload" href="../assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link href="../css/styles.css" rel="stylesheet" />
   <link href="../css/site.css" rel="stylesheet" />
 </head>
@@ -28,138 +29,125 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/">design lab</a>
+      <a class="wordmark" href="/">Design Lab</a>
       <!-- TODO: Rosso. Replace https://cal.com/REPLACE-ME with the real Cal.com link (3 places on this page). -->
       <a class="btn btn-outline btn-sm" href="https://cal.com/REPLACE-ME">Book a call</a>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero -->
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">For architecture firms of 1 to 20 people</span>
-        <h1 class="measure" style="max-width: 15em;">Know where every fee stands, and bill without the spreadsheet.</h1>
-        <p class="lead">Most small practices track fees and hours in one place, invoices in another, and project status in their head. The tools built for this were made for bigger firms, with demos, onboarding calls and more setup than a five-person studio has time for.</p>
-        <div class="cta-group">
+        <p class="for-whom">For architecture firms of 1 to 20 people</p>
+        <h1>Know where every fee stands, and bill without the spreadsheet.</h1>
+        <p class="lead">Set each project's fee by phase, log time against it, and turn it into an invoice in a few clicks. Made for small practices, so there's no demo and no setup project.</p>
+        <div class="cta">
           <a class="btn btn-primary btn-block" href="https://cal.com/REPLACE-ME">Book a 15-minute call</a>
-          <p class="cta-note">Tell us how you handle fees and billing today. No pitch.</p>
+          <p>15 minutes on how you bill today. No pitch.</p>
         </div>
       </div>
     </section>
 
-    <!-- Pain -->
-    <section class="section">
+    <section class="block block-flush-top" aria-labelledby="drawing-title">
       <div class="wrap">
-        <h2>Sound familiar?</h2>
-        <ul class="pain-list measure">
-          <li><strong>Over budget, found too late.</strong><span>You find out a phase went over its fee after the invoice is already late.</span></li>
-          <li><strong>Billing day is copy and paste.</strong><span>Billing day means pulling hours from one tool, fees from a spreadsheet and building the invoice by hand.</span></li>
-          <li><strong>Big tools, big setup.</strong><span>You tried the big practice-management tools and they were too heavy, too expensive or wanted a sales call first.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- What we are building + mockup -->
-    <section class="section">
-      <div class="wrap">
-        <h2>What we are building</h2>
-        <div class="prose">
-          <p>One simple place to set each project's fee by phase, log time against it, and turn it into a clean invoice in a few clicks. Sign up and start the same day. No demo, no sales call.</p>
-        </div>
-
-        <figure style="margin: var(--space-6) 0 0;">
-          <div class="mock" role="group" aria-label="Early design of the fee by phase view">
-            <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="mock-head">
-              <h3>Hudson St. residence</h3>
-              <p class="mock-meta num" style="margin:0">Total fee <b>$84,000</b> &middot; 1 phase over</p>
+        <figure class="drawing">
+          <div class="fee-run" role="list" aria-label="Fee by phase for an example project">
+            <div class="phase" role="listitem" style="--share: 15">
+              <div class="dim"><span>$12,600</span></div>
+              <div class="bar"><div class="used full" style="width:100%"></div></div>
+              <div class="phase-label"><b>SD</b><span>Billed</span></div>
             </div>
-            <ul class="phases">
-              <li class="phase is-done">
-                <span class="phase-name">SD <small>Schematic design</small></span>
-                <span class="meter" aria-hidden="true"><span style="width:100%"></span></span>
-                <span class="phase-amount">$12,600</span>
-                <span class="phase-status">100% billed</span>
-              </li>
-              <li class="phase is-over">
-                <span class="phase-name">DD <small>Design development</small></span>
-                <span class="meter" aria-hidden="true"><span style="width:100%"></span></span>
-                <span class="phase-amount">$16,800</span>
-                <span class="phase-status">112% used</span>
-              </li>
-              <li class="phase">
-                <span class="phase-name">CD <small>Construction documents</small></span>
-                <span class="meter" aria-hidden="true"><span style="width:35%"></span></span>
-                <span class="phase-amount">$33,600</span>
-                <span class="phase-status">35% used</span>
-              </li>
-              <li class="phase">
-                <span class="phase-name">Bidding <small>Bidding and negotiation</small></span>
-                <span class="meter" aria-hidden="true"><span style="width:0%"></span></span>
-                <span class="phase-amount">$4,200</span>
-                <span class="phase-status">0% used</span>
-              </li>
-              <li class="phase">
-                <span class="phase-name">CA <small>Construction administration</small></span>
-                <span class="meter" aria-hidden="true"><span style="width:0%"></span></span>
-                <span class="phase-amount">$16,800</span>
-                <span class="phase-status">0% used</span>
-              </li>
-            </ul>
-            <div class="mock-foot">
-              <p class="num">Next invoice <b>$9,240</b></p>
-              <span class="mock-btn" aria-hidden="true">Draft invoice</span>
+            <div class="phase phase-dd" role="listitem" style="--share: 20">
+              <div class="dim"><span>$16,800</span></div>
+              <div class="bar"><div class="used full" style="width:100%"></div><div class="over" style="width:12%"></div></div>
+              <div class="cloud" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M7.0,7.0 A7,7 0 0 1 21.3,7.0 A7,7 0 0 1 35.7,7.0 A7,7 0 0 1 50.0,7.0 A7,7 0 0 1 64.3,7.0 A7,7 0 0 1 78.7,7.0 A7,7 0 0 1 93.0,7.0 A7,7 0 0 1 93.0,21.3 A7,7 0 0 1 93.0,35.7 A7,7 0 0 1 93.0,50.0 A7,7 0 0 1 93.0,64.3 A7,7 0 0 1 93.0,78.7 A7,7 0 0 1 93.0,93.0 A7,7 0 0 1 78.7,93.0 A7,7 0 0 1 64.3,93.0 A7,7 0 0 1 50.0,93.0 A7,7 0 0 1 35.7,93.0 A7,7 0 0 1 21.3,93.0 A7,7 0 0 1 7.0,93.0 A7,7 0 0 1 7.0,78.7 A7,7 0 0 1 7.0,64.3 A7,7 0 0 1 7.0,50.0 A7,7 0 0 1 7.0,35.7 A7,7 0 0 1 7.0,21.3 A7,7 0 0 1 7.0,7.0"/></svg></div>
+              <div class="phase-label"><b>DD</b><span>112% used</span></div>
+              <span class="markup">Over fee by $2,016</span>
+            </div>
+            <div class="phase phase-cd" role="listitem" style="--share: 40">
+              <div class="dim"><span>$33,600</span></div>
+              <div class="bar"><div class="used" style="width:35%"></div></div>
+              <div class="phase-label"><b>CD</b><span>35% used</span></div>
+            </div>
+            <div class="phase phase-bid" role="listitem" style="--share: 5">
+              <div class="dim"><span>$4,200</span></div>
+              <div class="bar"></div>
+              <div class="phase-label"><b>Bid</b><span>Not started</span></div>
+            </div>
+            <div class="phase" role="listitem" style="--share: 20">
+              <div class="dim"><span>$16,800</span></div>
+              <div class="bar"></div>
+              <div class="phase-label"><b>CA</b><span>Not started</span></div>
             </div>
           </div>
-          <figcaption class="mock-caption">Early design. Founding firms help shape it.</figcaption>
+          <figcaption class="drawing-title">
+            <div>
+              <b id="drawing-title">Hudson St. residence, fee by phase</b><br>
+              <span class="pencil">$84,000 total fee. Next invoice $9,240, ready to send. An early design: founding firms help shape it.</span>
+            </div>
+            <ul class="legend">
+              <li><i class="k-used"></i>Fee used</li>
+              <li><i></i>Remaining</li>
+              <li><i class="k-over"></i>Over fee</li>
+            </ul>
+          </figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- Offer -->
-    <section class="section" id="founding">
+    <section class="block block-flush-top">
       <div class="wrap">
-        <div class="offer">
+        <h2 class="measure">How most small practices bill today</h2>
+        <p class="pencil measure">Fees and hours live in one place, invoices in another, and project status in someone's head. The tools built for this were made for bigger firms, with demos, onboarding calls and more setup than a five-person studio has time for.</p>
+        <ul class="problems">
+          <li><h3>Overruns show up late</h3><p>You find out a phase went over its fee after the invoice is already late.</p></li>
+          <li><h3>Billing day is copy and paste</h3><p>Hours from one tool, fees from a spreadsheet, and the invoice built by hand.</p></li>
+          <li><h3>The big tools are too much</h3><p>Too heavy, too expensive, or a sales call before you can even try them.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block block-flush-top" id="founding">
+      <div class="wrap">
+        <div class="founding">
           <div>
-            <h2>How founding access works</h2>
-            <p class="muted measure">We are building this with a small group of founding firms. They shape what it does first.</p>
-            <ol class="steps measure" style="margin-top: var(--space-5);">
-              <li><div><strong>Book a 15-minute call.</strong><span>Walk us through how you track fees and bill today.</span></div></li>
-              <li><div><strong>Reserve your spot.</strong><span>A refundable $100 deposit holds founding pricing.</span></div></li>
-              <li><div><strong>Get early access.</strong><span>Use it first and shape what gets built next.</span></div></li>
+            <h2>Founding firms</h2>
+            <p class="pencil measure">We're building this with a small group of practices. They decide what it does first.</p>
+            <ol class="steps measure">
+              <li><div><b>Book a 15-minute call</b><span>Walk us through how you track fees and bill today.</span></div></li>
+              <li><div><b>Reserve a spot</b><span>A refundable $100 deposit holds founding pricing.</span></div></li>
+              <li><div><b>Use it first</b><span>Get early access and shape what gets built next.</span></div></li>
             </ol>
           </div>
 
-          <div class="card-dl">
-            <h2>Become a founding firm</h2>
-            <ul class="check-list">
-              <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>$100, credited to your first year</strong> at founding pricing</span></li>
-              <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Refund any time before launch</strong>, no questions asked</span></li>
-              <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>No demo, no sales call</strong> to get started</span></li>
+          <div class="trace">
+            <h2>Founding access</h2>
+            <ul class="terms">
+              <li><b>$100 deposit</b>, credited to your first year at founding pricing</li>
+              <li><b>Refund any time</b> before launch, no questions asked</li>
+              <li><b>No demo or sales call</b> to get started</li>
             </ul>
-            <div class="cta-group">
+            <div class="cta">
               <a class="btn btn-primary btn-block" href="https://cal.com/REPLACE-ME">Book a 15-minute call</a>
               <!-- TODO: Stripe. Uncomment and add the Payment Link once it is live.
               <a href="STRIPE-PAYMENT-LINK">Or reserve founding access ($100, refundable)</a>
               -->
-              <p class="cta-note">Not ready for a call? Write to hello@designlab.fyi and tell us how you bill today.</p>
+              <p>Rather write? hello@designlab.fyi</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Founder -->
-    <section class="section">
+    <section class="block block-flush-top">
       <div class="wrap">
-        <div class="founder measure">
+        <div class="founder">
           <!-- TODO: Rosso. Replace with a real square photo, at least 400px. -->
-          <img src="../assets/img/founder.jpg" alt="Rosso, founder of Design Lab" width="96" height="96" />
+          <img src="../assets/img/founder.jpg" alt="Rosso, who is building Design Lab" width="120" height="120" />
           <div>
-            <h2>Hi, I'm Rosso</h2>
+            <h2>Who's building this</h2>
             <!-- TODO: Rosso to approve or edit this bio. -->
-            <p>I'm a UX researcher. I spend my days learning how people actually work, then designing around it. I'm building this with a small group of architecture practices.</p>
+            <p>I'm Rosso. I'm a UX researcher, so most of my work is watching how people actually get things done and designing around it. I'm building this with a handful of small practices, one call at a time.</p>
             <!-- TODO: Rosso. Replace with your LinkedIn URL. -->
             <a href="https://www.linkedin.com/in/REPLACE-ME">LinkedIn</a>
           </div>
@@ -168,11 +156,14 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
+  <footer class="wrap">
+    <div class="title-block">
+      <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Fee tracking for small practices</span></div>
       <!-- TODO: Rosso. Add the mailing address (also needed for CAN-SPAM). -->
-      <p>&copy; 2026 Design Strategy Lab LLC &middot; [MAILING ADDRESS]</p>
-      <p class="footer-links"><span>hello@designlab.fyi</span><a href="/privacy/">Privacy</a></p>
+      <div><small>Office</small>Design Strategy Lab LLC<br>[MAILING ADDRESS]</div>
+      <div><small>Contact</small>hello@designlab.fyi</div>
+      <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+      <div><small>Issued</small>2026</div>
     </div>
   </footer>
 </body>
