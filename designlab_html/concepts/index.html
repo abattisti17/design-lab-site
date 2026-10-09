@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Five ideas for small-firm billing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1d1a24; --muted:#6b6676; --line:#e4e1ea; --paper:#faf9fc; --card:#fff; --accent:#20004a; --good:#1f7a4d; --warn:#b54708; --bad:#b42318; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:"IBM Plex Sans", system-ui, sans-serif; line-height:1.5; }
+  header { max-width:1100px; margin:0 auto; padding:48px 16px 8px; }
+  h1 { font-family:"IBM Plex Serif", serif; font-size:clamp(28px,4vw,40px); margin:0 0 8px; }
+  header p { color:var(--muted); max-width:640px; margin:0; }
+  .grid { max-width:1100px; margin:24px auto 64px; padding:0 16px; display:grid; gap:20px; grid-template-columns:repeat(auto-fill, minmax(320px,1fr)); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:12px; }
+  .tag { font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+  .card h2 { font-family:"IBM Plex Serif", serif; font-size:24px; margin:0; }
+  .promise { font-size:17px; font-weight:600; margin:0; }
+  ul { margin:0; padding-left:18px; color:var(--muted); }
+  .price { margin-top:auto; font-weight:700; color:var(--accent); }
+  .screen { border:1px solid var(--line); border-radius:10px; background:#fcfcfe; padding:12px; font-size:13px; }
+  .row { display:flex; justify-content:space-between; gap:8px; padding:4px 0; border-bottom:1px dashed var(--line); }
+  .row:last-child { border-bottom:0; }
+  .bar { height:8px; border-radius:4px; background:var(--line); overflow:hidden; margin-top:4px; }
+  .bar span { display:block; height:100%; }
+  .pill { font-size:11px; padding:2px 8px; border-radius:999px; font-weight:600; }
+  .ok { background:#e7f5ee; color:var(--good); } .hot { background:#fff1e6; color:var(--warn); } .over { background:#fde8e6; color:var(--bad); }
+  .btn { display:inline-block; background:var(--accent); color:#fff; border-radius:8px; padding:6px 12px; font-weight:600; font-size:13px; }
+  footer { max-width:1100px; margin:0 auto 48px; padding:0 16px; color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+<header>
+  <p class="tag">Design Lab · early ideas</p>
+  <h1>Five ways we could fix fee tracking and billing</h1>
+  <p>None of these exist yet. They're rough on purpose. Tell us which one you'd fight to keep, which you'd throw out, and what's missing.</p>
+</header>
+
+<main class="grid">
+  <section class="card">
+    <span class="tag">Idea A</span>
+    <h2>Burn Alert</h2>
+    <p class="promise">Find out a phase is running hot while you can still do something about it.</p>
+    <div class="screen">
+      <div class="row"><span>Smith Residence · DD</span><span class="pill hot">82% of fee</span></div>
+      <div class="bar"><span style="width:82%;background:var(--warn)"></span></div>
+      <div class="row"><span>Elm St Clinic · CD</span><span class="pill ok">41% of fee</span></div>
+      <div class="bar"><span style="width:41%;background:var(--good)"></span></div>
+    </div>
+    <ul>
+      <li>Connects to the timesheets you already keep</li>
+      <li>Emails or texts you at 50%, 80% and 100% of each phase's fee</li>
+      <li>Nothing else to learn</li>
+    </ul>
+    <p class="price">~$29 / month</p>
+  </section>
+
+  <section class="card">
+    <span class="tag">Idea B</span>
+    <h2>One-Click Invoice</h2>
+    <p class="promise">Billing day goes from half a day to ten minutes.</p>
+    <div class="screen">
+      <div class="row"><span>SD 100% · DD 60% · CD 0%</span><span>$18,400</span></div>
+      <div class="row"><span>Reimbursables</span><span>$312</span></div>
+      <div class="row"><span><strong>Draft invoice #1042</strong></span><span class="btn">Approve &amp; send</span></div>
+    </div>
+    <ul>
+      <li>Pulls hours and % complete by phase</li>
+      <li>Drafts a percent-complete invoice in your format</li>
+      <li>You review, tweak, send</li>
+    </ul>
+    <p class="price">~$49 / month</p>
+  </section>
+
+  <section class="card">
+    <span class="tag">Idea C</span>
+    <h2>Fee Board</h2>
+    <p class="promise">Every project's fee health on one screen.</p>
+    <div class="screen">
+      <div class="row"><span><strong>Project</strong></span><span><strong>Fee · Spent · Billed · Paid</strong></span></div>
+      <div class="row"><span>Smith Residence</span><span>$60k · 48k · 40k · 32k</span></div>
+      <div class="row"><span>Elm St Clinic</span><span>$95k · 31k · 36k · 36k</span></div>
+      <div class="row"><span>Lake House</span><span class="pill over">over by $4k</span></div>
+    </div>
+    <ul>
+      <li>Fee, time spent, billed and collected side by side</li>
+      <li>Spots unbilled work and late payers</li>
+      <li>Built for 1 to 20 people, not 200</li>
+    </ul>
+    <p class="price">~$49 / month</p>
+  </section>
+
+  <section class="card">
+    <span class="tag">Idea D</span>
+    <h2>Contract to Fee Plan</h2>
+    <p class="promise">Your signed proposal becomes your project budget automatically.</p>
+    <div class="screen">
+      <div class="row"><span>📄 Smith_B101_signed.pdf</span><span class="pill ok">read</span></div>
+      <div class="row"><span>Phases found</span><span>SD 15% · DD 20% · CD 40% · CA 25%</span></div>
+      <div class="row"><span>Billing terms</span><span>Monthly, net 30</span></div>
+    </div>
+    <ul>
+      <li>Upload a proposal or AIA contract</li>
+      <li>Phases, fees and billing terms are pulled out for you</li>
+      <li>Project is set up and ready to track</li>
+    </ul>
+    <p class="price">~$79 / month</p>
+  </section>
+
+  <section class="card">
+    <span class="tag">Idea E</span>
+    <h2>Billing Desk</h2>
+    <p class="promise">A person who knows architecture contracts handles your billing.</p>
+    <div class="screen">
+      <div class="row"><span>This month</span><span>6 invoices sent</span></div>
+      <div class="row"><span>Fee check-ins</span><span>2 phases flagged</span></div>
+      <div class="row"><span>Your time spent</span><span>~15 min</span></div>
+    </div>
+    <ul>
+      <li>Not software: a part-time billing specialist</li>
+      <li>Sends invoices, chases payments, flags overruns</li>
+      <li>You approve; they do the rest</li>
+    </ul>
+    <p class="price">~$400 / month</p>
+  </section>
+</main>
+
+<footer>Design Lab · Thanks for taking a look. Nothing here is for sale yet.</footer>
+</body>
+</html>
