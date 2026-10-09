@@ -75,8 +75,9 @@
 
     <section class="block block-flush-top"><div class="wrap">
       <h2>The fee drawing</h2>
-      <p class="pencil measure">The one bold element. Segments are proportional to each phase's fee, dimensioned like a wall. Overruns are redlined in a revision cloud.</p>
-      <figure class="drawing">
+      <p class="pencil measure">The one bold element. Segments are proportional to each phase's fee, dimensioned like a wall. Overruns are redlined in a revision cloud. It sits on its own sheet (grid paper, double border, title block) so it reads as a drawing, separate from the page. The concept note sits outside the sheet, in parentheses.</p>
+      <figure class="drawing sheet">
+          <div class="sheet-frame">
           <div class="fee-run" role="list" aria-label="Fee by phase for an example project">
             <div class="phase" role="listitem" style="--share: 15">
               <div class="dim"><span>$12,600</span></div>
@@ -106,18 +107,23 @@
               <div class="phase-label"><b>CA</b><span>Not started</span></div>
             </div>
           </div>
-          <figcaption class="drawing-title">
-            <div>
-              <b id="drawing-title">Hudson St. residence, fee by phase</b><br>
-              <span class="pencil">$84,000 total fee. Next invoice $9,240, ready to send. An early design: founding firms help shape it.</span>
-            </div>
-            <ul class="legend">
+          <div class="sheet-foot">
+            <ul class="legend" aria-label="Key">
               <li><i class="k-used"></i>Fee used</li>
               <li><i></i>Remaining</li>
               <li><i class="k-over"></i>Over fee</li>
             </ul>
-          </figcaption>
+            <dl class="sheet-tb">
+              <div class="tb-project"><dt>Project</dt><dd id="drawing-title">Hudson St. residence</dd></div>
+              <div><dt>Drawing</dt><dd>Fee by phase</dd></div>
+              <div><dt>Total fee</dt><dd>$84,000</dd></div>
+              <div><dt>Next invoice</dt><dd>$9,240</dd></div>
+              <div><dt>Sheet</dt><dd>F-101</dd></div>
+            </dl>
+          </div>
+          </div>
         </figure>
+        <p class="concept-note">(An early concept design. Founding firms will help shape the vision.)</p>
     </div></section>
 
     <section class="block block-flush-top"><div class="wrap">

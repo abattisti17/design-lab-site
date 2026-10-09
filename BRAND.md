@@ -12,7 +12,7 @@ Pages use the tokens in `designlab_html/css/site.css`. Never write raw hex value
 
 Borrowed from architects' own drawings: black linework on white, hatching for what's used, dimension strings for amounts, a redline revision cloud for what's wrong, trace paper for what's still being worked out, and a title block at the foot of every page. The audience reads drawings all day, so the page speaks their visual language.
 
-Spend boldness in one place: the fee drawing at the top of the architecture page. Everything else stays quiet.
+Spend boldness in one place: the fee drawing at the top of the architecture page, set on its own drawing sheet (grid paper, double-line border, title block) so it reads as a separate object. Everything else stays quiet.
 
 ## Color
 

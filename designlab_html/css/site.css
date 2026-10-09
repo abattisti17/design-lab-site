@@ -236,19 +236,66 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
   .phase-bid .phase-label span { display: none; }
 }
 
-.drawing-title {
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2) var(--space-6);
-  margin-top: var(--space-7);
-  padding-top: var(--space-3);
-  border-top: var(--line);
-  font-size: var(--text-xs);
+/* The drawing sheet: a separate object from the web page.
+   Grid paper, a double-line sheet border, and its own title block. */
+.sheet {
+  --sheet: #F3F5F6;
+  background-color: var(--sheet);
+  background-image:
+    linear-gradient(rgba(40, 70, 100, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(40, 70, 100, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: var(--line);
+  padding: 6px;
 }
-.drawing-title b { font-stretch: 112%; font-size: var(--text-sm); }
-.legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); color: var(--pencil); margin: 0; padding: 0; list-style: none; }
+.sheet-frame {
+  border: 2px solid var(--ink);
+  padding: var(--space-6) var(--space-4) 0;
+}
+@media (min-width: 768px) { .sheet-frame { padding: var(--space-7) var(--space-7) 0; } }
+.sheet .dim span, .sheet .markup { background: var(--sheet); }
+.sheet .bar { background: var(--paper); }
+
+.sheet-foot {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: var(--space-5);
+  gap: 0;
+  margin: var(--space-7) calc(-1 * var(--space-4)) 0;
+  border-top: 2px solid var(--ink);
+}
+@media (min-width: 768px) { .sheet-foot { margin: var(--space-8) calc(-1 * var(--space-7)) 0; } }
+.legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); color: var(--pencil); margin: 0; padding: var(--space-4); list-style: none; font-size: var(--text-xs); }
+@media (min-width: 768px) { .legend { padding: var(--space-4) var(--space-7); } }
 .legend li { display: flex; align-items: center; gap: var(--space-2); }
-.legend i { display: inline-block; width: 22px; height: 12px; border: var(--line); }
+.legend i { display: inline-block; width: 22px; height: 12px; border: var(--line); background: var(--paper); }
 .legend .k-used { background: var(--hatch); }
 .legend .k-over { background: var(--hatch-red); border-color: var(--redline); }
+.sheet-foot .legend { align-self: center; }
+
+.sheet-tb {
+  display: grid; grid-template-columns: 1fr 1fr;
+  margin: 0; width: 100%;
+  border-top: var(--line);
+  background: var(--paper);
+  font-size: var(--text-xs);
+}
+.sheet-tb > div { padding: var(--space-2) var(--space-3); border-left: var(--line); border-top: var(--line); }
+.sheet-tb > div:nth-child(2n+1):not(.tb-project) { border-left: 0; }
+.sheet-tb .tb-project { grid-column: 1 / -1; border-left: 0; border-top: 0; }
+.sheet-tb dt { font-weight: 400; color: var(--pencil); font-size: 0.75rem; }
+.sheet-tb dd { margin: 0; font-weight: 600; font-stretch: 108%; }
+@media (min-width: 820px) {
+  .sheet-tb { width: auto; grid-template-columns: auto repeat(4, auto); border-top: 0; align-self: stretch; }
+  .sheet-tb > div, .sheet-tb > div:nth-child(2n+1):not(.tb-project) { border-top: 0; border-left: var(--line); }
+  .sheet-tb .tb-project { grid-column: auto; border-left: var(--line); min-width: 12rem; }
+  .sheet-tb > div { padding: var(--space-3) var(--space-4); }
+}
+
+.concept-note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--pencil);
+}
 
 /* ---------- Problems ---------- */
 .problems { display: grid; gap: var(--space-6); margin: var(--space-6) 0 0; padding: 0; list-style: none; }
