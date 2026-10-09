@@ -40,7 +40,7 @@ Spend boldness in one place: the fee drawing at the top of the architecture page
 
 ## Components
 
-In `site.css`, shown in the style guide: `.site-header`, `.wordmark`, `.btn` (`.btn-primary`, `.btn-outline`, `.btn-sm`), `.cta`, the fee drawing (`.drawing`, `.fee-run`, `.phase`, `.dim`, `.bar`, `.used`, `.over`, `.cloud`, `.markup`, `.legend`), `.problems`, `.steps`, `.trace`, `.terms`, `.founder`, `.prose`, `.title-block`.
+In `site.css`, shown in the style guide: `.site-header`, `.wordmark`, `.btn` (`.btn-primary`, `.btn-outline`, `.btn-sm`), `.cta`, the fee drawing (`.drawing`, `.fee-run`, `.phase`, `.dim`, `.bar`, `.used`, `.over`, `.cloud`, `.markup`, `.legend`), `.problems`, `.work` (now and next panels), `.plate` (small drawing on grid paper), `.process`, `.steps`, `.trace`, `.terms`, `.founder`, `.prose`, `.title-block`.
 
 ## Voice
 
