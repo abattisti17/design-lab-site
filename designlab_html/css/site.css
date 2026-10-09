@@ -330,7 +330,7 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
 
 /* ---------- Founder ---------- */
 .founder { display: grid; grid-template-columns: 1fr; gap: var(--space-5); max-width: 44rem; }
-@media (min-width: 768px) { .founder { grid-template-columns: 120px 1fr; gap: var(--space-6); } }
+@media (min-width: 768px) { .founder { gap: var(--space-6); } }
 .founder img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--line-light); filter: grayscale(1); }
 .founder h2 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
 .founder p { color: var(--ink); }
@@ -433,3 +433,7 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
 .scribble { max-height: 9rem; }
 .founder:has(img) { grid-template-columns: 88px 1fr; }
 @media (min-width: 768px) { .founder:has(img) { grid-template-columns: 120px 1fr; } }
+
+/* Footer breathing room below the title block */
+.site-foot { padding-bottom: var(--space-8); }
+.site-foot .title-block { margin-bottom: 0; }
