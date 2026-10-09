@@ -454,3 +454,30 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
 .c-rows > div:last-child { border-bottom: 0; }
 .c-rows dt { font-weight: 600; }
 .c-rows dd { margin: 0; text-align: right; }
+
+/* ---------- Calculator (/tools/fee-check/) ---------- */
+.calc { max-width: 52rem; }
+.calc label { display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-2); }
+.calc input { font: inherit; font-size: var(--text-sm); width: 100%; padding: var(--space-2) var(--space-3); border: var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); }
+.calc input:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
+.calc-rate { max-width: 22rem; margin-bottom: var(--space-6); }
+.calc-rate input { max-width: 10rem; }
+.calc-table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-5); font-size: var(--text-sm); }
+.calc-table th, .calc-table td { padding: var(--space-2); text-align: left; vertical-align: top; border-bottom: 1px solid var(--line-light); }
+.calc-table thead th { font-size: var(--text-xs); color: var(--pencil); font-weight: 400; border-bottom: var(--line); }
+.calc-table .c-name { max-width: 6rem; font-weight: 600; }
+.c-out { font-size: var(--text-xs); min-width: 11rem; }
+.c-out b { font-size: var(--text-sm); }
+.c-out b::before { content: ""; display: inline-block; width: 14px; height: 10px; border: var(--line); background: var(--paper); margin-right: var(--space-2); vertical-align: 0; }
+.c-out.is-hot b::before { background: var(--hatch); }
+.c-out.is-over b::before { background: var(--hatch-red); border-color: var(--redline); }
+.c-out.is-over b, .c-out.is-over span { color: var(--redline); }
+.calc-total { border-top: var(--line); padding-top: var(--space-4); margin-top: var(--space-5); max-width: var(--measure); }
+@media (max-width: 700px) {
+  .calc-table thead { display: none; }
+  .calc-table, .calc-table tbody, .calc-table tr, .calc-table th, .calc-table td { display: block; width: 100%; }
+  .calc-table tr { border: var(--line); padding: var(--space-3); margin-bottom: var(--space-4); }
+  .calc-table th, .calc-table td { border: 0; padding: var(--space-1) 0; }
+  .calc-table td::before { content: attr(data-label); display: block; font-size: var(--text-xs); color: var(--pencil); margin-bottom: var(--space-1); }
+  .calc-table .c-name { max-width: none; }
+}

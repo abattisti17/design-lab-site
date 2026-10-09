@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phase fee check: is your project on track against its fee? | Design Lab</title>
+  <meta name="description" content="Free calculator for architects. Enter each phase's fee, hours logged and percent complete to see whether you're on track, running hot or over fee." />
+  <link rel="canonical" href="https://designlab.fyi/tools/fee-check/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Design Lab" />
+  <meta property="og:url" content="https://designlab.fyi/tools/fee-check/" />
+  <meta property="og:title" content="Phase fee check for architects" />
+  <meta property="og:description" content="See which phases are on track, running hot or over fee. Free, no sign-up, nothing leaves your browser." />
+  <meta property="og:image" content="https://designlab.fyi/assets/img/og-architecture.png" />
+
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../../assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/favicon-180.png" />
+  <link rel="preload" href="../../assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="../../css/styles.css" rel="stylesheet" />
+  <link href="../../css/site.css" rel="stylesheet" />
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="/">Design Lab</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="for-whom">Free tool for small architecture practices</p>
+        <h1>Phase fee check</h1>
+        <p class="lead">Enter each phase's fee, the hours logged so far and how far along it really is. You'll see which phases are on track, running hot or over fee. No sign-up, and nothing you type leaves your browser.</p>
+      </div>
+    </section>
+
+    <section class="block block-flush-top">
+      <div class="wrap">
+        <form class="calc" id="calc" novalidate>
+          <div class="calc-rate">
+            <label for="rate">Blended hourly rate <span class="pencil">($ per hour, what an hour of your team's time is worth against the fee)</span></label>
+            <input id="rate" name="rate" type="number" inputmode="decimal" min="0" step="1" value="150" />
+          </div>
+
+          <table class="calc-table">
+            <caption class="visually-hidden">Phases</caption>
+            <thead>
+              <tr>
+                <th scope="col">Phase</th>
+                <th scope="col">Phase fee ($)</th>
+                <th scope="col">Hours logged</th>
+                <th scope="col">% complete</th>
+                <th scope="col">Result</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+
+          <div class="cta">
+            <button type="button" class="btn btn-outline btn-sm" id="add">Add a phase</button>
+            <button type="button" class="btn btn-outline btn-sm" id="reset">Reset example</button>
+          </div>
+
+          <div class="calc-total" id="total" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="block block-flush-top">
+      <div class="wrap">
+        <div class="prose">
+          <h2>How the check works</h2>
+          <ul>
+            <li><strong>Fee used</strong> = hours logged × blended rate ÷ phase fee.</li>
+            <li><strong>Projected at finish</strong> = value of hours so far ÷ percent complete. It assumes the rest of the phase goes at the same pace.</li>
+            <li><strong>On track</strong> when the projection lands within 5% of the phase fee.</li>
+            <li><strong>Running hot</strong> when the projection is more than 5% over the phase fee.</li>
+            <li><strong>Over fee</strong> when fee used passes 100%.</li>
+            <li><strong>Whole project</strong> counts phases that haven't started at their full fee.</li>
+          </ul>
+          <h2>Picking a blended rate</h2>
+          <p>Use the average billing rate across the people working on the project. If you'd rather see cost instead of fee, use average salary per hour times your overhead multiplier. Either works, as long as you use the same one every month.</p>
+          <h2>Why percent complete matters</h2>
+          <p>Hours alone don't tell you much. A phase that has used 60% of its fee is fine if it's 70% done, and a problem if it's 40% done. Being honest about percent complete is what makes this useful.</p>
+          <p>We're building something that does this every month from your timesheets. <a href="/architecture/">See what we're working on</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="title-block">
+      <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Fee tracking for small practices</span></div>
+      <div><small>Office</small>Design Strategy Lab LLC<br>New York</div>
+      <div><small>Contact</small>hello@designlab.fyi</div>
+      <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+      <div><small>Issued</small>2026</div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var EXAMPLE = [
+      { name: "SD", fee: 9000, hours: 60, pct: 100 },
+      { name: "DD", fee: 12000, hours: 66, pct: 55 },
+      { name: "CD", fee: 24000, hours: 40, pct: 20 },
+      { name: "CA", fee: 15000, hours: 0, pct: 0 }
+    ];
+    var rows = document.getElementById("rows");
+    var rate = document.getElementById("rate");
+    var total = document.getElementById("total");
+    var money = function (n) { return "$" + Math.round(n).toLocaleString("en-US"); };
+    var num = function (el) { var v = parseFloat(el.value); return isFinite(v) && v >= 0 ? v : 0; };
+
+    function addRow(p, i) {
+      var tr = document.createElement("tr");
+      var id = "p" + Date.now() + "-" + i;
+      tr.innerHTML =
+        '<th scope="row"><label class="visually-hidden" for="' + id + 'n">Phase name</label><input id="' + id + 'n" class="c-name" type="text" value="' + (p.name || "") + '" /></th>' +
+        '<td data-label="Phase fee ($)"><label class="visually-hidden" for="' + id + 'f">Phase fee</label><input id="' + id + 'f" class="c-fee" type="number" inputmode="decimal" min="0" value="' + (p.fee || "") + '" /></td>' +
+        '<td data-label="Hours logged"><label class="visually-hidden" for="' + id + 'h">Hours logged</label><input id="' + id + 'h" class="c-hours" type="number" inputmode="decimal" min="0" value="' + (p.hours || "") + '" /></td>' +
+        '<td data-label="% complete"><label class="visually-hidden" for="' + id + 'p">Percent complete</label><input id="' + id + 'p" class="c-pct" type="number" inputmode="decimal" min="0" max="100" value="' + (p.pct || "") + '" /></td>' +
+        '<td class="c-out" data-label="Result"></td>';
+      rows.appendChild(tr);
+    }
+
+    function calc() {
+      var r = num(rate), tFee = 0, tUsed = 0, tProj = 0, flagged = 0;
+      if (!r) {
+        Array.prototype.forEach.call(rows.rows, function (tr) { var o = tr.querySelector(".c-out"); o.textContent = ""; o.className = "c-out"; });
+        total.innerHTML = "<b>Enter your blended hourly rate</b> to see results.";
+        return;
+      }
+      Array.prototype.forEach.call(rows.rows, function (tr) {
+        var fee = num(tr.querySelector(".c-fee")), hrs = num(tr.querySelector(".c-hours"));
+        var pct = Math.min(num(tr.querySelector(".c-pct")), 100);
+        var out = tr.querySelector(".c-out");
+        if (!fee) { out.textContent = "Enter a fee"; out.className = "c-out pencil"; return; }
+        var used = hrs * r, usedPct = used / fee * 100;
+        var proj, status, cls, line = Math.round(usedPct) + "% of fee used";
+        if (pct > 0) { proj = used / (pct / 100); }
+        else { proj = Math.max(used, fee); }
+        if (usedPct > 100) { status = "Over fee"; cls = "is-over"; flagged++; }
+        else if (pct === 0 && hrs === 0) { status = "Not started"; cls = "is-ok"; }
+        else if (pct === 0) { status = "Add % complete"; cls = "is-hot"; flagged++; line += ", can't project without % complete"; }
+        else if (proj > fee * 1.05) { status = "Running hot"; cls = "is-hot"; flagged++; }
+        else { status = "On track"; cls = "is-ok"; }
+        if (pct > 0 && pct < 100) {
+          var diff = proj - fee;
+          line += ", projected " + (Math.abs(diff) < 1 ? "right on fee" : diff > 0 ? money(diff) + " over" : money(-diff) + " under");
+        }
+        out.innerHTML = "<b>" + status + "</b><br><span>" + line + "</span>";
+        out.className = "c-out " + cls;
+        tFee += fee; tUsed += used; tProj += proj;
+      });
+      if (!tFee) { total.textContent = ""; return; }
+      var d = tProj - tFee;
+      total.innerHTML = "<b>Whole project:</b> " + Math.round(tUsed / tFee * 100) + "% of " + money(tFee) + " used. " +
+        (Math.abs(d) < 1 ? "At the current pace it finishes right on fee." : "At the current pace it finishes about " + (d > 0 ? money(d) + " over fee." : money(-d) + " under fee.")) +
+        (flagged ? " " + flagged + " phase" + (flagged > 1 ? "s need" : " needs") + " a look." : "");
+    }
+
+    function load(list) { rows.innerHTML = ""; list.forEach(addRow); calc(); }
+    document.getElementById("calc").addEventListener("input", calc);
+    document.getElementById("add").addEventListener("click", function () { addRow({ name: "", fee: "", hours: "", pct: "" }, rows.rows.length); calc(); });
+    document.getElementById("reset").addEventListener("click", function () { rate.value = 150; load(EXAMPLE); });
+    load(EXAMPLE);
+  })();
+  </script>
+</body>
+</html>
