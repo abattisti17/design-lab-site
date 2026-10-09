@@ -437,3 +437,20 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
 /* Footer breathing room below the title block */
 .site-foot { padding-bottom: var(--space-8); }
 .site-foot .title-block { margin-bottom: 0; }
+
+/* ---------- Concept cards (/concepts/, discovery-call stimulus) ---------- */
+.concepts { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-6); }
+@media (min-width: 768px) { .concepts { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .concepts { grid-template-columns: repeat(3, 1fr); } }
+.concepts .plate { min-height: 0; height: 10rem; padding: var(--space-5); }
+.concepts .work-body { padding: var(--space-5); }
+.concepts .work-body h2 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.concepts .work-body > p { color: var(--ink); font-weight: 600; margin-bottom: var(--space-3); }
+.concepts .work-body ul { margin: 0; padding-left: 1.2rem; color: var(--pencil); font-size: var(--text-sm); }
+.concepts .work-body li { margin-bottom: var(--space-1); }
+.concept-id { font-size: var(--text-xs); color: var(--pencil) !important; font-weight: 400 !important; margin-bottom: var(--space-1) !important; }
+.c-rows { width: 100%; margin: 0; font-size: var(--text-xs); }
+.c-rows > div { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-2) 0; border-bottom: 1px solid var(--line-light); }
+.c-rows > div:last-child { border-bottom: 0; }
+.c-rows dt { font-weight: 600; }
+.c-rows dd { margin: 0; text-align: right; }
