@@ -120,7 +120,8 @@ strong, b { font-weight: 600; }
 .wrap-narrow { max-width: calc(var(--measure) + 2 * var(--space-6)); }
 
 .section { padding: var(--space-8) 0; }
-.section + .section { border-top: var(--hairline); }
+.section + .section,
+.hero + .section { border-top: var(--hairline); }
 .section-tight { padding: var(--space-7) 0; }
 
 /* ---------- Header ---------- */
