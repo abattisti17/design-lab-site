@@ -5,6 +5,13 @@
    See BRAND.md at the repo root and /styleguide/ for the living reference.
    ========================================================================== */
 
+/* ---------- Fonts (self-hosted, SIL OFL, see assets/fonts/OFL-LICENSE.txt) ---------- */
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/ibm-plex-serif-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/ibm-plex-serif-latin-600-normal.woff2") format("woff2"); }
+
 /* ---------- Tokens ---------- */
 :root {
   /* Color */
@@ -98,6 +105,8 @@ a:hover { color: var(--brand-hover); text-decoration-thickness: 2px; }
 .btn:focus, .btn:focus-visible { box-shadow: none; }
 
 strong, b { font-weight: 600; }
+
+code { color: var(--graphite); font-size: 0.875em; }
 
 ::selection { background: var(--brand-tint); color: var(--ink); }
 
@@ -370,6 +379,10 @@ strong, b { font-weight: 600; }
 /* ---------- Prose blocks ---------- */
 .prose { max-width: var(--measure); }
 .prose p { color: var(--ink); }
+.prose h2 { margin-top: var(--space-7); }
+.prose > :first-child { margin-top: 0; }
+.prose ul { padding-left: 1.25rem; margin: 0 0 var(--space-4); }
+.prose li { margin-bottom: var(--space-2); }
 
 /* ---------- Feature link card (homepage) ---------- */
 .link-card {

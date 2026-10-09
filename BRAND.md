@@ -37,7 +37,7 @@ Alternative being considered: swap `--brand` to blueprint blue `#1D4ED8` (6.4:1)
 - Scale: 14, 16, 18, 22, 28, 36, 48px (`--text-xs` to `--text-3xl`)
 - Body 18px, line height 1.6. Headings line height 1.2.
 - Use `.num` (tabular figures) wherever amounts stack in a column.
-- Load both families from Google Fonts with exactly these weights on every page.
+- Fonts are self-hosted in `assets/fonts/` and declared in `site.css`. No Google Fonts or other third-party requests, so the privacy page stays true.
 
 ## Space and shape
 
