@@ -1,0 +1,52 @@
+name: Deploy to Electric Embers
+
+# Uploads everything in designlab_html/ to the designlab_html folder on the server.
+# Runs on every push to main, or manually from the Actions tab ("Run workflow").
+# Upload only: files on the server that aren't in this repo are left alone.
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'designlab_html/**', '.github/workflows/deploy.yml' ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check secrets are set
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_PATH: ${{ secrets.SFTP_PATH }}
+        run: |
+          missing=""
+          for v in SFTP_HOST SFTP_USERNAME SFTP_PASSWORD SFTP_PATH; do
+            [ -z "${!v}" ] && missing="$missing $v"
+          done
+          if [ -n "$missing" ]; then
+            echo "Missing repo secrets:$missing"
+            echo "Add them under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - name: Upload site
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_PATH: ${{ secrets.SFTP_PATH }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+          echo "Uploading designlab_html/ to ${SFTP_HOST}"
+          sshpass -p "${SFTP_PASSWORD}" scp -P 22212 -o StrictHostKeyChecking=no -o Compression=yes \
+            -r designlab_html/. "${SFTP_USERNAME}@${SFTP_HOST}:${SFTP_PATH%/}/"
+          echo "Done. Check https://designlab.fyi (hard refresh if you see the old version)."
