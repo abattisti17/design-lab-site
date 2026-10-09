@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Design Lab style guide</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet" />
+  <link href="../css/site.css" rel="stylesheet" />
+  <style>
+    .sg-grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
+    .swatch { border: var(--hairline); border-radius: var(--radius-card); overflow: hidden; background: var(--surface); }
+    .swatch div { height: 64px; border-bottom: var(--hairline); }
+    .swatch p { margin: 0; padding: var(--space-3); font-size: var(--text-xs); line-height: 1.4; }
+    .swatch code { color: var(--graphite); }
+    .sg-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+    .sg-label { font-size: var(--text-xs); color: var(--graphite); margin: var(--space-6) 0 var(--space-3); }
+    .space-bar { height: 12px; background: var(--brand); border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="/">design lab</a>
+      <span class="small-text muted">Style guide (internal)</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">Design system v0.1</span>
+        <h1>Style guide</h1>
+        <p class="lead muted measure">Tokens and components for designlab.fyi. Pages use the tokens in <code>css/site.css</code>, never raw hex values. Contrast ratios are measured against Paper.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Color</h2>
+        <div class="sg-grid">
+          <div class="swatch"><div style="background:var(--paper)"></div><p><b>Paper</b><br><code>--paper #FAFAF7</code><br>Page background</p></div>
+          <div class="swatch"><div style="background:var(--surface)"></div><p><b>Surface</b><br><code>--surface #FFFFFF</code><br>Cards</p></div>
+          <div class="swatch"><div style="background:var(--ink)"></div><p><b>Ink</b><br><code>--ink #17181C</code><br>Text, 17.0:1</p></div>
+          <div class="swatch"><div style="background:var(--graphite)"></div><p><b>Graphite</b><br><code>--graphite #4F5560</code><br>Secondary text, 7.2:1</p></div>
+          <div class="swatch"><div style="background:var(--rule)"></div><p><b>Rule</b><br><code>--rule #E4E4DE</code><br>Hairlines, borders</p></div>
+          <div class="swatch"><div style="background:var(--brand)"></div><p><b>Brand</b><br><code>--brand #1F0046</code><br>Actions, links, 17.5:1</p></div>
+          <div class="swatch"><div style="background:var(--brand-tint)"></div><p><b>Brand tint</b><br><code>--brand-tint #F1EEF6</code><br>Highlights</p></div>
+          <div class="swatch"><div style="background:var(--over)"></div><p><b>Over</b><br><code>--over #B42318</code><br>Over budget, 6.3:1</p></div>
+          <div class="swatch"><div style="background:var(--paid)"></div><p><b>Paid</b><br><code>--paid #15803D</code><br>Paid, done, 4.8:1</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Type</h2>
+        <p class="sg-label">Plex Serif 500, headings only</p>
+        <p style="font-family:var(--font-serif);font-weight:500;font-size:var(--text-3xl);line-height:1.1;margin-bottom:var(--space-2)">48 Know where every fee stands</p>
+        <p style="font-family:var(--font-serif);font-weight:500;font-size:var(--text-2xl);line-height:1.15;margin-bottom:var(--space-2)">36 Know where every fee stands</p>
+        <p style="font-family:var(--font-serif);font-weight:500;font-size:var(--text-xl);line-height:1.2">28 Know where every fee stands</p>
+        <p class="sg-label">Plex Sans 400 / 500 / 600, everything else</p>
+        <p style="font-size:var(--text-lg);font-weight:600;margin-bottom:var(--space-2)">22 Semibold, small headings</p>
+        <p style="font-size:var(--text-md);margin-bottom:var(--space-2)">18 Regular, body text. Plain, specific, short sentences.</p>
+        <p style="font-size:var(--text-sm);margin-bottom:var(--space-2)">16 Regular, UI text and buttons</p>
+        <p style="font-size:var(--text-xs);color:var(--graphite)">14 Regular, captions and meta</p>
+        <p class="sg-label">Tabular figures (<code>.num</code>) for amounts that stack</p>
+        <p class="num" style="font-size:var(--text-md);line-height:1.5">$12,600.00<br>$16,800.00<br>$4,200.00</p>
+        <p class="sg-label">Eyebrow</p>
+        <span class="eyebrow">For architecture firms of 1 to 20 people</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Space and shape</h2>
+        <p class="sg-label">Spacing steps (4px base)</p>
+        <div style="display:grid;gap:6px;max-width:24rem">
+          <div class="space-bar" style="width:4px"></div><div class="space-bar" style="width:8px"></div><div class="space-bar" style="width:12px"></div><div class="space-bar" style="width:16px"></div><div class="space-bar" style="width:24px"></div><div class="space-bar" style="width:32px"></div><div class="space-bar" style="width:48px"></div><div class="space-bar" style="width:64px"></div><div class="space-bar" style="width:96px"></div>
+        </div>
+        <p class="sg-label">Radius: 6px controls, 10px cards. 1px hairlines. No shadows.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Components</h2>
+        <p class="sg-label">Buttons</p>
+        <div class="sg-row">
+          <a class="btn btn-primary" href="#">Book a 15-minute call</a>
+          <a class="btn btn-outline" href="#">Book a call</a>
+          <a class="btn btn-outline btn-sm" href="#">Small</a>
+        </div>
+
+        <p class="sg-label">Card</p>
+        <div class="card-dl measure"><h3>Card title</h3><p class="muted" style="margin:0">Surface background, hairline border, 10px radius.</p></div>
+
+        <p class="sg-label">Pain list</p>
+        <ul class="pain-list measure">
+          <li><strong>Over budget, found too late.</strong><span>You find out a phase went over its fee after the invoice is already late.</span></li>
+        </ul>
+
+        <p class="sg-label">Check list</p>
+        <ul class="check-list measure">
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Refund any time before launch</span></li>
+        </ul>
+
+        <p class="sg-label">Steps</p>
+        <ol class="steps measure">
+          <li><div><strong>Book a 15-minute call.</strong><span>Tell us how you handle fees today.</span></div></li>
+          <li><div><strong>Reserve your spot.</strong><span>A refundable $100 deposit.</span></div></li>
+        </ol>
+
+        <p class="sg-label">Status tag</p>
+        <span class="tag">Over fee</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>Design Strategy Lab LLC</p><p>Internal reference, not linked from the site.</p></div>
+  </footer>
+</body>
+</html>
