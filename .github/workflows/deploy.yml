@@ -1,22 +1,89 @@
-name: Deploy to Electric Embers
+name: Check and deploy
 
-# Uploads everything in designlab_html/ to the designlab_html folder on the server.
-# Runs on every push to main, or manually from the Actions tab ("Run workflow").
-# Upload only: files on the server that aren't in this repo are left alone.
+# Every pull request and every push to main runs the checks:
+#   - HTML validation, internal link check
+#   - screenshots of every page at phone and desktop widths (download them
+#     from the run's "Artifacts"), and a failure if a page scrolls sideways
+# Pull requests then deploy to the staging site, if STAGING_SFTP_PATH is set.
+# Pushes to main deploy to designlab.fyi, only if the checks passed.
+# Uploads only: files on the server that aren't in this repo are left alone.
 
 on:
   push:
     branches: [ main ]
-    paths: [ 'designlab_html/**', '.github/workflows/deploy.yml' ]
+    paths: [ 'designlab_html/**', '.github/**' ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
 
-concurrency:
-  group: deploy
-  cancel-in-progress: false
-
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9 --config .github/ci/htmlvalidate.json "designlab_html/**/*.html"
+
+      - name: Check internal links
+        run: npx --yes linkinator@6 designlab_html --recurse --skip '^https?://(?!localhost)' --skip '^mailto:'
+
+      - name: Screenshots and layout check
+        run: |
+          npm i --no-save playwright@1
+          npx playwright install --with-deps chromium
+          node .github/ci/screenshots.mjs
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots/
+          retention-days: 14
+
+  deploy-staging:
+    needs: check
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-staging
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload to staging
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          STAGING_SFTP_PATH: ${{ secrets.STAGING_SFTP_PATH }}
+        run: |
+          if [ -z "${STAGING_SFTP_PATH}" ]; then
+            echo "::notice::No STAGING_SFTP_PATH secret yet, so no staging deploy. Checks still ran; see the screenshots artifact."
+            exit 0
+          fi
+          # Keep staging out of search results
+          printf 'User-agent: *\nDisallow: /\n' > designlab_html/robots.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+          sshpass -p "${SFTP_PASSWORD}" scp -P 22212 -o StrictHostKeyChecking=no -o Compression=yes \
+            -r designlab_html/. "${SFTP_USERNAME}@${SFTP_HOST}:${STAGING_SFTP_PATH%/}/"
+          echo "Staging updated. Check https://staging.designlab.fyi"
+
+  deploy:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
