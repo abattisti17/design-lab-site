@@ -329,7 +329,7 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
 .trace .cta p { color: #4A4A3A; }
 
 /* ---------- Founder ---------- */
-.founder { display: grid; grid-template-columns: 88px 1fr; gap: var(--space-5); max-width: 44rem; }
+.founder { display: grid; grid-template-columns: 1fr; gap: var(--space-5); max-width: 44rem; }
 @media (min-width: 768px) { .founder { grid-template-columns: 120px 1fr; gap: var(--space-6); } }
 .founder img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--line-light); filter: grayscale(1); }
 .founder h2 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
@@ -431,3 +431,5 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
 .now h2 { font-size: var(--text-xl); }
 @media (min-width: 900px) { .work .plate { height: 13rem; min-height: 0; padding-top: var(--space-5); padding-bottom: var(--space-5); } }
 .scribble { max-height: 9rem; }
+.founder:has(img) { grid-template-columns: 88px 1fr; }
+@media (min-width: 768px) { .founder:has(img) { grid-template-columns: 120px 1fr; } }
