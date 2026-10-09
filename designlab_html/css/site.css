@@ -481,3 +481,6 @@ a:hover { color: var(--ink); text-decoration-thickness: 2px; }
   .calc-table td::before { content: attr(data-label); display: block; font-size: var(--text-xs); color: var(--pencil); margin-bottom: var(--space-1); }
   .calc-table .c-name { max-width: none; }
 }
+.concept-sets { display: flex; gap: var(--space-4); margin: 0 0 var(--space-5); font-size: var(--text-sm); }
+.concept-sets a { color: var(--pencil); }
+.concept-sets a[aria-current="page"] { color: var(--ink); font-weight: 600; text-decoration: none; }
