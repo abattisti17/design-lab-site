@@ -1,13 +1,12 @@
 # Sign-up database
 
-Every door page posts to `designlab_html/join/submit.php`. It saves one row per sign-up in a MySQL table called `signups`, which it creates on the first sign-up.
+Every door page posts to `designlab_html/join/submit.php`. It saves one row per sign-up in a table called `signups`, in a SQLite file (`signups.db`) that it creates on the first sign-up. MySQL also works; see `config.example.php`.
 
 ## One-time setup
 
-1. In the Electric Embers control panel, create a MySQL database and a user for it. Note the database name, user and password.
-2. On the server, make a folder called `designlab-private` in the same place as `designlab_html` (next to it, not inside it).
-3. Copy `config.example.php` into that folder as `config.php` and fill in the three database values.
-4. Visit any door page and sign up with your own email. You should land on the thanks page and get a notification email.
+1. In Cyberduck (SFTP, port 22212), make a folder called `designlab-private` next to `designlab_html`, not inside it.
+2. Upload `config.example.php` into that folder, renamed to `config.php`. No edits needed for SQLite.
+3. Visit any door page and sign up with your own email. You should land on the thanks page, and `signups.db` should appear in the folder.
 
 ## Columns
 
@@ -26,4 +25,4 @@ No IP addresses or browser details are stored.
 
 ## Viewing sign-ups
 
-phpMyAdmin in the control panel. Export the `signups` table as CSV to open it in Numbers.
+Download `signups.db` with Cyberduck and open it in DB Browser for SQLite (free), which can export CSV for Numbers.
