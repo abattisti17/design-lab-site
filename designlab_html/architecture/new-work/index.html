@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find public architecture projects and RFPs for small firms | Design Lab</title>
+  <meta name="description" content="A weekly list of public architecture projects sized for small firms, plus help filling in qualification forms. Made for architecture firms of 1 to 20 people." />
+  <link rel="canonical" href="https://designlab.fyi/architecture/new-work/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Design Lab" />
+  <meta property="og:url" content="https://designlab.fyi/architecture/new-work/" />
+  <meta property="og:title" content="Find public projects that fit your firm, and apply faster." />
+  <meta property="og:description" content="A weekly list of public architecture projects sized for small firms, plus help filling in qualification forms. Made for architecture firms of 1 to 20 people." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/favicon-180.png" />
+  <link rel="preload" href="/assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="/css/styles.css" rel="stylesheet" />
+  <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="/">Design Lab</a>
+      <a class="btn btn-outline btn-sm" href="#join">Get early access</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="for-whom">Design Lab Leads, for architecture firms of 1 to 20 people</p>
+        <h1>Find public projects that fit your firm, and apply faster.</h1>
+        <p class="lead">Cities, school districts and agencies post small architecture projects on hundreds of separate sites. Get the ones that fit you in one weekly email, and reuse your project write-ups when you apply.</p>
+        <div class="cta">
+          <a class="btn btn-primary btn-block" href="#join">Get early access</a>
+          <p>$49 a month for the whole firm. No demo or sales call.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block block-flush-top" aria-labelledby="features-h">
+      <div class="wrap">
+        <h2 id="features-h">What it does</h2>
+        <ul class="problems">
+          <li>
+            <h3>Weekly public RFP list</h3>
+            <p>Requests for proposals and qualifications sized for small firms, filtered by your region and project types.</p>
+          </li>
+          <li>
+            <h3>Qualification forms from your records</h3>
+            <p>Fill in forms like the federal SF330 from project descriptions and team details you&#x27;ve already written.</p>
+          </li>
+          <li>
+            <h3>Inquiry screening</h3>
+            <p>Website and Houzz inquiries answer a few questions about budget and timing before you spend time on a call.</p>
+          </li>
+          <li>
+            <h3>Lead source tracking</h3>
+            <p>See which channels bring in the clients who actually sign.</p>
+          </li>
+          <li>
+            <h3>Proposal to contract to invoice</h3>
+            <p>A signed proposal becomes the contract and the billing schedule, without retyping.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="join" aria-labelledby="join-h">
+      <div class="wrap">
+        <div class="trace">
+          <h2 id="join-h">Get early access to Design Lab Leads</h2>
+          <ul class="terms">
+            <li><b>$49 a month for the whole firm</b>, any number of people</li>
+            <li><b>No demo or sales call</b> to get started</li>
+            <li><b>Cancel any time</b></li>
+          </ul>
+          <form class="door-form" id="join-form" method="post" action="/join/submit.php">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@yourfirm.com" />
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <input type="hidden" name="page" value="new-work" />
+            <input type="hidden" name="cohort" value="architecture" />
+            <input type="hidden" name="test" value="door-v1" />
+            <input type="hidden" name="variant" value="a" />
+            <input type="hidden" name="return" value="/architecture/new-work/" />
+            <input type="hidden" name="utm_source" value="" />
+            <input type="hidden" name="utm_medium" value="" />
+            <input type="hidden" name="utm_campaign" value="" />
+            <input type="hidden" name="ref" value="" />
+            <input type="hidden" name="t" value="" />
+            <p class="form-error" id="join-error" role="alert" hidden></p>
+            <button class="btn btn-primary btn-block" type="submit">Get early access</button>
+            <p class="fine">We'll only use your email for Design Lab Leads. <a href="/privacy/">Privacy</a></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-foot">
+    <div class="title-block">
+      <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Tools for small architecture firms</span></div>
+      <div><small>Office</small>Design Strategy Lab LLC<br>New York</div>
+      <div><small>Contact</small>hello@designlab.fyi</div>
+      <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+      <div><small>Issued</small>2026</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var f = document.getElementById('join-form');
+      if (!f) return;
+      f.t.value = Date.now();
+      var q = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) { if (q.get(k)) f[k].value = q.get(k); });
+      if (document.referrer && document.referrer.indexOf(location.host) === -1) f.ref.value = document.referrer;
+      var err = q.get('error');
+      if (err) {
+        var box = document.getElementById('join-error');
+        box.textContent = err === 'email' ? 'That email address doesn\'t look right. Please check it and try again.' : 'Something went wrong on our end. Please try again, or email hello@designlab.fyi.';
+        box.hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>
