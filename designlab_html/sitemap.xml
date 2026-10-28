@@ -2,5 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://designlab.fyi/</loc></url>
   <url><loc>https://designlab.fyi/architecture/</loc></url>
+  <url><loc>https://designlab.fyi/architecture/billing/</loc></url>
+  <url><loc>https://designlab.fyi/architecture/records/</loc></url>
+  <url><loc>https://designlab.fyi/architecture/construction/</loc></url>
+  <url><loc>https://designlab.fyi/architecture/new-work/</loc></url>
+  <url><loc>https://designlab.fyi/architecture/benchmarks/</loc></url>
   <url><loc>https://designlab.fyi/privacy/</loc></url>
 </urlset>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>You're on the list | Design Lab</title>
+  <meta name="description" content="Thanks for signing up for early access." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/favicon-180.png" />
+  <link rel="preload" href="/assets/fonts/archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link href="/css/styles.css" rel="stylesheet" />
+  <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="/">Design Lab</a>
+
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>You're on the list.</h1>
+        <p class="lead"><span id="product">Design Lab</span> is still being built. We're opening it to a small group of firms first, and we'd like to shape it around how you work.</p>
+        <p class="lead">If you have 15 minutes, tell us what you'd use it for first. Founding firms get the first invites.</p>
+        <div class="cta">
+          <a class="btn btn-primary btn-block" href="https://calendar.proton.me/bookings#ZeXGK9n2clESe2hDfISa7DX1Gpitlw_yBewjGOE4DZk=">Book a 15-minute call</a>
+          <p>Rather write? hello@designlab.fyi</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap site-foot">
+    <div class="title-block">
+      <div class="tb-name"><span class="wordmark">Design Lab</span><br><span class="pencil">Tools for small architecture firms</span></div>
+      <div><small>Office</small>Design Strategy Lab LLC<br>New York</div>
+      <div><small>Contact</small>hello@designlab.fyi</div>
+      <div><small>Privacy</small><a href="/privacy/">How we handle your data</a></div>
+      <div><small>Issued</small>2026</div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var names = {"billing": "Billing", "records": "Records", "construction": "Site", "new-work": "Leads", "benchmarks": "Benchmarks"};
+      var p = new URLSearchParams(location.search).get('p');
+      if (names[p]) document.getElementById('product').textContent = 'Design Lab ' + names[p];
+    })();
+  </script>
+</body>
+</html>
